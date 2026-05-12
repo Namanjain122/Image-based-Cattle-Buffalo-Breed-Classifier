@@ -1,107 +1,170 @@
+# Cattle Breed Detection & Classification System 🐄🤖
 
+An AI-powered **2-Tier Cattle Intelligence System** designed to detect cattle types (**Cow vs Buffalo**) and classify their breeds using advanced deep learning models.
 
-
-
-https://github.com/user-attachments/assets/2f17632b-7b16-4c28-9e54-303866b715f5
-
-
-
-# Image-Based Cattle & Buffalo Breed Classifier
-
-A deep learning-based computer vision project that performs **two-stage cattle and buffalo breed classification** using **YOLOv8** and **ResNet** models.
-
-The system first detects whether the animal is a **cow or buffalo**, crops the detected region, and then classifies the breed using a ResNet-based classifier.
+The system combines **YOLOv8 object detection**, **ResNetV2-50 breed classification**, and a **Generative AI Veterinary Assistant** powered by the Groq API to provide breed-specific insights and guidance.
 
 ---
 
 # 🚀 Features
 
-- Cow vs Buffalo Detection using YOLOv8
-- Breed Classification using ResNet
-- Image Prediction Support
-- Video Prediction Support
-- Flask-based Web Interface
-- Real-time Bounding Box Detection
-- Automatic Cropping Pipeline
-- Deep Learning-based Classification
+- ✅ Detects **Cow** and **Buffalo** using YOLOv8
+- ✅ Classifies specific cattle breeds with confidence scores
+- ✅ Supports:
+  - Image Upload
+  - Video Upload
+  - Folder Upload
+- ✅ Real-time visualization with bounding boxes
+- ✅ AI Veterinary Assistant ("Mr. Doctor")
+- ✅ Streamlit Interactive Dashboard
+- ✅ Flask Lightweight Web Application
+- ✅ Modular Crop-and-Classify AI Pipeline
 
 ---
 
-# 🧠 Model Pipeline
+# 🧠 System Architecture
 
-## 1️⃣ YOLOv8 Detection Model
+The project follows a **2-Tier Deep Learning Pipeline**.
+
+## Tier 1 — Cattle Detection
+
+- Uses **YOLOv8** for object detection
 - Detects:
   - Cow
   - Buffalo
-- Crops detected animal region
-- Trained on **1000+ annotated images**
+- Generates accurate bounding boxes
+- Crops detected cattle regions for breed classification
 
-## 2️⃣ ResNet Breed Classification Model
-- Takes cropped animal image as input
-- Predicts breed of cattle/buffalo
-- Trained on **12,000+ breed images**
+## Tier 2 — Breed Classification
+
+- Cropped cattle images are passed into **ResNetV2-50**
+- Predicts cattle breed with confidence scores
+
+## AI Veterinary Assistant — "Mr. Doctor"
+
+- Powered by the Groq API
+- Provides:
+  - Breed-specific healthcare tips
+  - Basic veterinary guidance
+  - Livestock management suggestions
 
 ---
 
-# 🛠️ Tech Stack
+# 🛠️ Technology Stack
 
-- Python
-- YOLOv8
-- ResNet
-- Flask
-- OpenCV
-- PyTorch
-- NumPy
+| Component | Technology |
+|---|---|
+| Detection Model | YOLOv8 |
+| Classification Model | ResNetV2-50 |
+| Frontend Dashboard | Streamlit |
+| Lightweight Web App | Flask |
+| Generative AI | Groq API |
+| Deep Learning Framework | PyTorch |
+| Computer Vision | OpenCV |
+| Language | Python |
+| Utilities | NumPy |
+
+---
+
+# 📊 Dataset Information
+
+## Detection Dataset
+
+- Trained on **1,000+ annotated images**
+- Classes:
+  - Cow
+  - Buffalo
+
+## Classification Dataset
+
+- Trained on **13,000+ cattle images**
+- Includes multiple breeds such as:
+  - Gir
+  - Sahiwal
+  - Murrah
+  - HF Cross
+  - Jersey
+  - Red Sindhi
+  - And more
+
+---
+
+# 🖥️ Web Interfaces
+
+## 1️⃣ Streamlit Interactive Dashboard (Recommended)
+
+A complete AI dashboard with enhanced user interaction.
+
+### Features
+
+- Multi-mode uploads:
+  - Image
+  - Video
+  - Folder
+- Real-time detection visualization
+- Breed confidence scores
+- AI Veterinary Assistant integration
+- Interactive UI experience
+
+### Run Streamlit App
+
+```bash
+streamlit run WebApp_Using_Streamlit/Home.py
+```
+
+---
+
+## 2️⃣ Flask Web Application
+
+A lightweight web application focused on core prediction functionality.
+
+### Features
+
+- Image upload
+- Video upload
+- Fast and minimal interface
+
+### Run Flask App
+
+```bash
+python FLask_Web_App/app.py
+```
 
 ---
 
 # 📂 Project Structure
 
 ```bash
-├── Project/
+├── FLask_Web_App/                 # Flask implementation
 │   ├── static/
 │   ├── templates/
-│   ├── utils/
 │   └── app.py
 │
-├── ResNet/
-├── yolo/
+├── WebApp_Using_Streamlit/        # Streamlit Dashboard
+│   ├── Bot/
+│   │   └── ChatBot.py             # Groq-powered AI Assistant
+│   │
+│   ├── assets/                    # UI assets
+│   │
+│   ├── utils/
+│   │   ├── predict.py             # Inference logic
+│   │   └── Detect_Breed.py        # Detection + Classification pipeline
+│   │
+│   └── Home.py                    # Streamlit entry point
 │
-├── .gitignore
-├── Cattle and Breed Detecton Resnet.ipynb
-├── Cattle and Buffaloes Breed.ipynb
-├── Rename_images.py
-├── test.py
-└── test_Video.mp4
+├── Notebooks/                     # Training notebooks
+│
+├── yolo/                          # YOLO configurations and weights
+│
+├── requirements.txt
+└── README.md
 ```
 
 ---
 
-# 📊 Dataset Details
+# ⚙️ Installation & Setup
 
-| Model | Dataset Size |
-|------|------|
-| YOLOv8 Detection | 1000+ Images |
-| ResNet Classification | 12,000+ Images |
-
----
-
-# ⚠️ Important Note
-
-Large model files (`.pt`, `.pth`) and datasets are excluded from this repository because of GitHub storage limitations.
-
-The repository contains:
-- Source code
-- Flask application
-- Training notebooks
-- Utility scripts
-- Project structure
-
----
-
-# ▶️ Installation & Setup
-
-## 1️⃣ Clone Repository
+## 1️⃣ Clone the Repository
 
 ```bash
 git clone https://github.com/Namanjain122/Image-based-Cattle-Buffalo-Breed-Classifier.git
@@ -109,34 +172,99 @@ git clone https://github.com/Namanjain122/Image-based-Cattle-Buffalo-Breed-Class
 cd Image-based-Cattle-Buffalo-Breed-Classifier
 ```
 
-## 2️⃣ Install Dependencies
+---
+
+## 2️⃣ Create Virtual Environment (Recommended)
+
+### Windows
+
+```bash
+python -m venv venv
+venv\Scripts\activate
+```
+
+### Linux / MacOS
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+---
+
+## 3️⃣ Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## 3️⃣ Run Flask Application
+---
+
+# ▶️ Usage
+
+## Run Streamlit Dashboard
 
 ```bash
-python Project/app.py
+streamlit run WebApp_Using_Streamlit/Home.py
 ```
 
 ---
 
-# 📷 Supported Inputs
+## Run Flask Application
 
-- Images
-- Videos
+```bash
+python FLask_Web_App/app.py
+```
 
 ---
 
-# 🎯 Future Improvements
+# 📸 Workflow
 
-- Real-time webcam detection
-- Model optimization
-- Mobile deployment
-- Cloud deployment
-- Improved breed accuracy
+1. Upload Image / Video / Folder
+2. YOLOv8 detects cattle
+3. Detected cattle is cropped
+4. ResNetV2-50 predicts breed
+5. Results displayed with confidence score
+6. Ask "Mr. Doctor" for veterinary insights
+
+---
+
+# 🎯 Supported Breeds
+
+Some supported breeds include:
+
+- Gir
+- Sahiwal
+- Murrah
+- HF Cross
+- Jersey
+- Red Sindhi
+- And more
+
+---
+
+# 📈 Future Improvements
+
+- 🔹 Real-time webcam support
+- 🔹 Mobile application deployment
+- 🔹 Cloud deployment with API endpoints
+- 🔹 Disease prediction module
+- 🔹 Cattle tracking and analytics
+- 🔹 Multilingual veterinary chatbot
+
+---
+
+# 🤝 Contributing
+
+Contributions are welcome.
+
+If you'd like to improve the project:
+
+1. Fork the repository
+2. Create a new branch
+3. Commit your changes
+4. Push to your branch
+5. Open a Pull Request
 
 ---
 
@@ -144,10 +272,27 @@ python Project/app.py
 
 ## Naman Jain
 
-AI/ML Developer
+- AI/ML Developer
+- B.Tech CSE — Galgotias University
 
-GitHub Repository:  
-https://github.com/Namanjain122/Image-based-Cattle-Buffalo-Breed-Classifier
+### Connect With Me
 
-Linkedin:
-[🎥View Demo on LinkedIn](https://www.linkedin.com/posts/naman-jain-9136732aa_artificialintelligence-machinelearning-deeplearning-ugcPost-7459465247511171072-XSW1?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEp-OF8BoZi6dSyYN5Xrf1kujyocZc_kzTM)
+- GitHub: https://github.com/Namanjain122
+- LinkedIn: https://www.linkedin.com/
+
+---
+
+# ⭐ Acknowledgements
+
+- Ultralytics YOLOv8
+- PyTorch
+- Streamlit
+- Flask
+- OpenCV
+- Groq API
+
+---
+
+# 📜 License
+
+This project is licensed under the MIT License.
