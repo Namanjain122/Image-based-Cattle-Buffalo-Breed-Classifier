@@ -1,3 +1,4 @@
+https://github.com/user-attachments/assets/77a93721-c866-4096-9dd6-ce0f9fca8cc5
 # Cattle Breed Detection & Classification System 🐄🤖
 
 An AI-powered **2-Tier Cattle Intelligence System** designed to detect cattle types (**Cow vs Buffalo**) and classify their breeds using advanced deep learning models.
@@ -227,10 +228,6 @@ python FLask_Web_App/app.py
 5. Results displayed with confidence score
 6. Ask "Mr. Doctor" for veterinary insights
 <img width="706" height="626" alt="Architecture" src="https://github.com/user-attachments/assets/cc76c339-48e0-48d8-b790-a94ef4b47bce" />
-
-https://github.com/user-attachments/assets/77a93721-c866-4096-9dd6-ce0f9fca8cc5
-
-
 ---
 
 # 🎯 Supported Breeds
