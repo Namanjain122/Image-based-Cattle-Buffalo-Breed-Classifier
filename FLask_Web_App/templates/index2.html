@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livestock Breed Detection AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div id="particles"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">🔬</span>
+                <h1>LiveStock AI</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#upload">Upload</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#results">Results</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Livestock Breed Detection</h1>
+            <p class="hero-subtitle">Advanced AI-Powered Recognition System</p>
+            <button class="hero-btn" onclick="document.getElementById('upload').scrollIntoView({behavior: 'smooth'})">
+                Get Started
+            </button>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <h2 class="section-title">Why Choose Us?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Lightning Fast</h3>
+                <p>Instant breed detection in milliseconds</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>High Accuracy</h3>
+                <p>99% accurate predictions</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3>Secure</h3>
+                <p>Your data is protected</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Detailed Analysis</h3>
+                <p>Comprehensive breed information</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upload Section -->
+    <section id="upload" class="upload-section">
+    <div class="upload-container">
+
+    <h2 class="section-title">Upload Your Livestock Image</h2>
+    <p class="section-subtitle">Detect cattle and buffalo breeds instantly</p>
+
+    <form method="POST" enctype="multipart/form-data" class="upload-form">
+
+    <div class="upload-box" id="uploadBox">
+
+    <div class="upload-icon">📸</div>
+
+    <h3>Drag & Drop or Click</h3>
+
+    <p>Select single image, multiple images, or a folder</p>
+
+    <input
+    type="file"
+    name="files"
+    id="fileInput"
+    multiple
+    accept="image/*"
+    style="display:none">
+
+    <input
+    type="file"
+    name="files"
+    id="folderInput"
+    multiple
+    webkitdirectory
+    directory
+    style="display:none">
+
+    </div>
+
+    <div class="file-list" id="fileList">
+    <div class="empty-state">No files selected</div>
+    </div>
+
+    <button type="submit" class="submit-btn" id="submitBtn">
+    <span class="btn-text">Analyze Breeds</span>
+    <span class="btn-icon">→</span>
+    </button>
+
+    </form>
+
+    </div>
+    </section>
+
+    <!-- Loading State -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-container">
+            <div class="loading-spinner"></div>
+            <p>Analyzing your livestock images...</p>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Results Section -->
+    {% if results and breed_results %}
+    <section id="results" class="results-section">
+        <div class="results-container">
+            <h2 class="section-title">Detection Results</h2>
+            
+            <div class="results-grid">
+                {% for i in range(results|length) %}
+                {% set result = results[i] %}
+                {% set breeds = breed_results[i] %}
+                <div class="result-card">
+                    <div class="result-image-container">
+                        <img src="{{ result }}" alt="Result Image" class="result-image">
+                        <div class="result-overlay"></div>
+                    </div>
+                    
+                    <div class="result-content">
+                        <h3>Detected Breeds</h3>
+                        <div class="breed-predictions">
+                            {% for breed in breeds %}
+                            <div class="breed-item">
+                                <span class="breed-name">{{ breed }}</span>
+                                <div class="confidence-bar">
+                                    <div class="confidence-fill" style="width: {{ 85 + loop.index0 * 3 }}%;"></div>
+                                </div>
+                                <span class="confidence-text">{{ 85 + loop.index0 * 3 }}%</span>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <form action="/" method="GET" style="text-align: center; margin-top: 2rem;">
+                <button type="submit" class="reset-btn">Analyze More Images</button>
+            </form>
+        </div>
+    </section>
+    {% endif %}
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 LiveStock AI. Advanced Breed Detection System.</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

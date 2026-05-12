@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cattle Breed Detection</title>
+</head>
+
+<body>
+
+<h2>Upload Images, Videos or Folder</h2>
+
+<form method="POST" enctype="multipart/form-data">
+
+<p>Select Image/Video Files:</p>
+<input type="file" name="files" multiple>
+
+<br><br>
+
+<p>Or Select a Folder:</p>
+<input type="file" name="files" webkitdirectory directory multiple>
+
+<br><br>
+
+<button type="submit">Upload</button>
+
+</form>
+
+<hr>
+
+{% if results %}
+
+{% for i in range(results|length) %}
+
+{% set file = results[i] %}
+{% set breeds = breed_results[i] %}
+
+{% if file.endswith('.mp4') %}
+
+<video width="600" controls>
+<source src="{{ file }}">
+</video>
+
+{% else %}
+
+<img src="{{ file }}" width="600">
+
+{% endif %}
+
+<h3>Breed Predictions</h3>
+
+<ul>
+{% for breed in breeds %}
+<li>{{ breed }}</li>
+{% endfor %}
+</ul>
+
+<hr>
+
+{% endfor %}
+
+{% endif %}
+
+</body>
+</html>
