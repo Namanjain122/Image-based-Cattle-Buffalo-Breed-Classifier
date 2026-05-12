@@ -2,13 +2,13 @@
 
 An AI-powered **2-Tier Cattle Intelligence System** designed to detect cattle types (**Cow vs Buffalo**) and classify their breeds using advanced deep learning models.
 
-The system combines **YOLOv8 object detection**, **ResNetV2-50 breed classification**, and a **Generative AI Veterinary Assistant** powered by the Groq API to provide breed-specific insights and guidance.
+The system combines **YOLO26s object detection**, **ResNetV2-50 breed classification**, and a **Generative AI Veterinary Assistant** powered by the Groq API to provide breed-specific insights and guidance.
 
 ---
 
 # 🚀 Features
 
-- ✅ Detects **Cow** and **Buffalo** using YOLOv8
+- ✅ Detects **Cow** and **Buffalo** using YOLO26s
 - ✅ Classifies specific cattle breeds with confidence scores
 - ✅ Supports:
   - Image Upload
@@ -28,7 +28,7 @@ The project follows a **2-Tier Deep Learning Pipeline**.
 
 ## Tier 1 — Cattle Detection
 
-- Uses **YOLOv8** for object detection
+- Uses **YOLO26s** for object detection
 - Detects:
   - Cow
   - Buffalo
@@ -54,7 +54,7 @@ The project follows a **2-Tier Deep Learning Pipeline**.
 
 | Component | Technology |
 |---|---|
-| Detection Model | YOLOv8 |
+| Detection Model | YOLO26s |
 | Classification Model | ResNetV2-50 |
 | Frontend Dashboard | Streamlit |
 | Lightweight Web App | Flask |
@@ -221,7 +221,7 @@ python FLask_Web_App/app.py
 # 📸 Workflow
 
 1. Upload Image / Video / Folder
-2. YOLOv8 detects cattle
+2. YOLO26s detects cattle
 3. Detected cattle is cropped
 4. ResNetV2-50 predicts breed
 5. Results displayed with confidence score
@@ -269,7 +269,7 @@ Some supported breeds include:
 
 # ⭐ Acknowledgements
 
-- Ultralytics YOLOv8
+- Ultralytics YOLO26s
 - PyTorch
 - Streamlit
 - Flask
