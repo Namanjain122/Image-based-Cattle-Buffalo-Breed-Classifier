@@ -226,6 +226,10 @@ python FLask_Web_App/app.py
 4. ResNetV2-50 predicts breed
 5. Results displayed with confidence score
 6. Ask "Mr. Doctor" for veterinary insights
+<img width="706" height="626" alt="Architecture" src="https://github.com/user-attachments/assets/cc76c339-48e0-48d8-b790-a94ef4b47bce" />
+
+https://github.com/user-attachments/assets/77a93721-c866-4096-9dd6-ce0f9fca8cc5
+
 
 ---
 
