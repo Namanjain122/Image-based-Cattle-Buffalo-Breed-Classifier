@@ -278,7 +278,7 @@ If you'd like to improve the project:
 ### Connect With Me
 
 - GitHub: https://github.com/Namanjain122
-- LinkedIn: https://www.linkedin.com/
+- LinkedIn: [Link to Live demo](https://www.linkedin.com/posts/naman-jain-9136732aa_artificialintelligence-machinelearning-deeplearning-ugcPost-7459465247511171072-XSW1?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEp-OF8BoZi6dSyYN5Xrf1kujyocZc_kzTM)
 
 ---
 
@@ -292,7 +292,3 @@ If you'd like to improve the project:
 - Groq API
 
 ---
-
-# 📜 License
-
-This project is licensed under the MIT License.
